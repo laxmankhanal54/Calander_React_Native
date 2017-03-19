@@ -14,16 +14,12 @@ import {
   Keyboard
 } from 'react-native';
 
-import Calendar from 'react-native-calendar';
-import moment from 'moment';
 // import DatePicker from 'react-native-datepicker';
-import DatePicker from './components/MyDatePicker'
+import DatePicker from './components/DatePicker'
+import Calendar from './components/Calendar'
+import moment from 'moment';       
 
-const customDayHeadings = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const customMonthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May',
-  'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const eventList = ['event 1', 'event 2', 'event 3', 'event 4', 'event 5'];
-
 
 const styles = StyleSheet.create({
   container: {
@@ -261,20 +257,7 @@ export default class Calender extends Component {
           <Calendar
             eventDates={['2017-02-14', '2017-02-15', '2016-07-28', '2016-07-30']}
             events={[{date: '2017-02-14', hasEventCircle: {backgroundColor: 'powderblue'}}]}
-            scrollEnabled = {true}
-            showControls = {true}
-            dayHeadings={customDayHeadings}
-            monthNames={customMonthNames}
-            showEventIndicators={true}
-            titleFormat={'MMMM YYYY'}
-            prevButtonText={'Prev'}
-            nextButtonText={'Next'}
             onDateSelect={(date) => this._didSelectDate(date)}
-            onTouchPrev={(e) => console.log('onTouchPrev: ', e)}
-            onTouchNext={(e) => console.log('onTouchNext: ', e)}
-            onSwipePrev={(e) => console.log('onSwipePrev: ', e)}
-            onSwipeNext={(e) => console.log('onSwipeNext', e)}
-            weekStart={0} 
           />
         </View>
 
