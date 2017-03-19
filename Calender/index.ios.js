@@ -16,7 +16,8 @@ import {
 
 import Calendar from 'react-native-calendar';
 import moment from 'moment';
-import DatePicker from 'react-native-datepicker';
+// import DatePicker from 'react-native-datepicker';
+import DatePicker from './components/MyDatePicker'
 
 const customDayHeadings = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const customMonthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May',
@@ -121,8 +122,6 @@ const styles = StyleSheet.create({
 
 });
 
-var datePicker = require('./components/MyDatePicker.js');
-
 export default class Calender extends Component {
     constructor(props) {
       super(props);
@@ -139,6 +138,7 @@ export default class Calender extends Component {
       };
     }
   _didSelectStartDate(date) {
+    console.log('didselectstartdate')
     this.setState({startDate: date});
   }
 
@@ -210,10 +210,6 @@ export default class Calender extends Component {
                 <View style={{flexDirection: 'row', alignItems: 'center', marginLeft: 16}}>
                   <Text>Start Date</Text>
                   <DatePicker
-                    confirmBtnText="Confirm"
-                    cancelBtnText="Cancel"
-                    format='MMMM Do YYYY, h:mm A'
-                    mode="datetime"
                     date={this.state.startDate}
                     onDateChange={(date) => {this.setState({startDate: date})}}
                     style={styles.date_picker}
@@ -224,10 +220,6 @@ export default class Calender extends Component {
                 <View style={{flexDirection: 'row', alignItems: 'center', marginLeft: 16}}>
                   <Text>End Date</Text>
                   <DatePicker
-                    confirmBtnText="Confirm"
-                    cancelBtnText="Cancel"
-                    format='MMMM Do YYYY, h:mm A'
-                    mode="datetime"
                     date={this.state.endDate}
                     onDateChange={(date) => {this.setState({endDate: date})}}
                     style={[styles.date_picker, {paddingLeft: 30}]}
